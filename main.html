@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Email and Password Validation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .form-container {
+      width: 300px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .form-container label,
+    .form-container input[type="text"],
+    .form-container input[type="password"],
+    .form-container input[type="submit"] {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    .form-container input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+    .form-container input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    .error {
+      border: 1px solid red;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <form id="loginForm">
+      <label for="email">Email:</label>
+      <input type="text" id="email" name="email" placeholder="Enter your email">
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" placeholder="Enter your password">
+
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent form submission
+
+      var emailInput = document.getElementById('email');
+      var emailValue = emailInput.value.trim();
+
+      if (emailValue.indexOf('@') === -1) {
+        emailInput.classList.add('error');
+      } else {
+        emailInput.classList.remove('error');
+        // Here, you can add further validation or submit the form
+        // For example, you can access the password value using document.getElementById('password').value
+        // You can submit the form using this.submit();
+        // For example: this.submit();
+      }
+    });
+  </script>
+
+</body>
+</html>
